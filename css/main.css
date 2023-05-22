@@ -1,0 +1,89 @@
+/* 그리드: 전체 구조에 좋음, 플렉스: 요소 정렬에 좋음 */
+
+html {ㅌ
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Flex Demo */
+.box {
+    padding: 1rem;
+    background-color: darkcyan;
+    color: paleturquoise;
+    margin: 10px;
+    /* width: 200px; */
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;  /* 줄바꿈 */
+    justify-content: flex-start;  /* space-around: 여백 포함한 간격 균등 분할 */
+    height: 600px;
+    align-items: center; /* flex-end: 끝단에 맞춰 height 길이 짧아짐. */
+}
+
+.flex .box1 {
+    flex-basis: 100px;
+}
+
+.flex .box2 {
+    order: 1; /* 돌 추가: 무거워져서, 아래로 내려감 */
+
+}
+.flex .box3 {
+    order: 1;
+}
+
+/* Grid Demo */
+.grid .box {
+    background-color: rgb(227, 98, 121);
+}
+
+.grid {
+    display: grid;
+    /* grid-template-columns: 100px 25%; */
+    /* grid-template-columns: 1fr 2fr;  *fr: fraction(분수) */
+    /*grid-template-columns: repeat(3, 50px 80px);  *50px, 80px짜리 나열이 3번 반복-(box1,box2) (box3,box4) (box5,box6).... */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+    "box1 box2 box2"
+    "box1 box3 box4"
+    "box5 box5 box5"
+    /* "box5 box5 box5" *이거는 왜 아래로 확장이 안되나?  */
+}
+
+/* .grid .box1 {
+    grid-column: 1/3;    *4자리에 행 갯수보다 큰 수를 넣으면 그리드 구조가 달라지니 주의
+    grid-row: 1/3;
+} */
+
+/* .grid .box1 {
+    grid-column: 1 / span 2;   *위와 같은 명령어, 다른 형식
+} */
+
+
+.grid .box1 {
+    grid-area: box1;
+
+}
+
+.grid .box2 {
+    grid-area: box2;
+}
+
+.grid .box3 {
+    grid-area: box3;
+
+}
+
+.grid .box4 {
+    grid-area: box4;
+}
+
+.grid .box5 {
+    grid-area: box5;
+}
